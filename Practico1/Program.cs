@@ -19,9 +19,9 @@ namespace Practico1
                     case "1":
                         EjercicioUno();
                         break;
-                    //case "2":
-                    //    EjercicioDos();
-                    //    break;
+                    case "2":
+                        EjercicioDos();
+                        break;
                     //case "0":
                     //    Console.WriteLine("Saliendo...");
                     //    break;
@@ -64,8 +64,29 @@ namespace Practico1
 
         static int NumeroRandom()
         {
-            int numeroRandom = new Random().Next(0, 2);
+            int numeroRandom = new Random().Next(1, 3);
             return numeroRandom;
+        }
+
+        /*
+        Ejercicio 2  
+        Solicitar un número y mostrar la tabla del mismo.
+        */
+
+        static void EjercicioDos() 
+        {
+            //Buscar la manera de optimizar este código
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("****** EJERCICIO 2 ******");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            int numero = PedirNumeros("Ingrese un número: ");
+            for (int i = 0; i <= 10; i++)
+            {
+                Console.WriteLine($"{numero} X {i} = {numero * i}");
+            }
+            PressToContinue();
         }
 
         static void MostrarMenu()
@@ -75,7 +96,7 @@ namespace Practico1
             Console.WriteLine("****** MENU ******");
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("1 - Ejercicio 1");
-            Console.WriteLine("2 - Resta");
+            Console.WriteLine("2 - Ejercicio 2");
             Console.WriteLine("0 - Salir");
         }
 
