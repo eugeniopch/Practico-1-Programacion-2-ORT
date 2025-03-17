@@ -18,34 +18,42 @@ namespace Practico1
                 switch (opcion)
                 {
                     case "1":
+                        MenuEjercicio(opcion);
                         EjercicioUno();
                         PressToContinue();
                         break;
                     case "2":
+                        MenuEjercicio(opcion);
                         EjercicioDos();
                         PressToContinue();
                         break;
                     case "3":
+                        MenuEjercicio(opcion);
                         EjercicioTres();
                         PressToContinue();
                         break;
                     case "4":
+                        MenuEjercicio(opcion);
                         EjercicioCuatro();
                         PressToContinue();
                         break;
                     case "5":
+                        MenuEjercicio(opcion);
                         EjercicioCinco();
                         PressToContinue();
                         break;
                     case "6":
+                        MenuEjercicio(opcion);
                         EjercicioSeis();
                         PressToContinue();
                         break;
                     case "7":
+                        MenuEjercicio(opcion);
                         EjercicioSiete();
                         PressToContinue();
                         break;
                     case "8":
+                        MenuEjercicio(opcion);
                         EjercicioOcho();
                         PressToContinue();
                         break;
@@ -88,12 +96,6 @@ namespace Practico1
             }
         }
 
-        static int NumeroRandom()
-        {
-            int numeroRandom = new Random().Next(1, 3);
-            return numeroRandom;
-        }
-
         /*
         Ejercicio 2  
         Solicitar un número y mostrar la tabla del mismo.
@@ -101,12 +103,6 @@ namespace Practico1
 
         static void EjercicioDos() 
         {
-            //Buscar la manera de optimizar este código
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("****** EJERCICIO 2 ******");
-            Console.ForegroundColor = ConsoleColor.Gray;
-
             int numero = PedirNumeros("Ingrese un número: ");
             for (int i = 0; i <= 10; i++)
             {
@@ -241,6 +237,20 @@ namespace Practico1
             Console.WriteLine("7 - Ejercicio 7");
             Console.WriteLine("8 - Ejercicio 8");
             Console.WriteLine("0 - Salir");
+        }
+
+        static void MenuEjercicio(string numero)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"****** EJERCICIO {numero} ******");
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
+        static int NumeroRandom()
+        {
+            int numeroRandom = new Random().Next(1, 3);
+            return numeroRandom;
         }
 
         static int PedirNumeros(string mensaje)
