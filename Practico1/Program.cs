@@ -19,21 +19,35 @@ namespace Practico1
                 {
                     case "1":
                         EjercicioUno();
+                        PressToContinue();
                         break;
                     case "2":
                         EjercicioDos();
+                        PressToContinue();
                         break;
                     case "3":
                         EjercicioTres();
+                        PressToContinue();
                         break;
                     case "4":
                         EjercicioCuatro();
+                        PressToContinue();
                         break;
                     case "5":
                         EjercicioCinco();
+                        PressToContinue();
                         break;
                     case "6":
                         EjercicioSeis();
+                        PressToContinue();
+                        break;
+                    case "7":
+                        EjercicioSiete();
+                        PressToContinue();
+                        break;
+                    case "8":
+                        EjercicioOcho();
+                        PressToContinue();
                         break;
                     case "0":
                         Console.WriteLine("Saliendo...");
@@ -71,8 +85,6 @@ namespace Practico1
                 {
                     Console.WriteLine("No coinciden");
                 }
-                PressToContinue();
-                Console.Clear();
             }
         }
 
@@ -100,7 +112,6 @@ namespace Practico1
             {
                 Console.WriteLine($"{numero} X {i} = {numero * i}");
             }
-            PressToContinue();
         }
 
         /*Ejercicio 3.  
@@ -118,7 +129,6 @@ namespace Practico1
                     Console.WriteLine(i);
                 }
             }
-            PressToContinue();
         }
 
         /*Ejercicio 4  
@@ -139,8 +149,6 @@ namespace Practico1
             }
 
             //Ver respuesta en caso de que no se encuentre comprendido entre los dos números
-
-            PressToContinue();
         }
 
         /*Ejercicio 5  
@@ -163,8 +171,6 @@ namespace Practico1
 
                 sumatoria += numero;
             }
-
-            PressToContinue();
         }
 
         /*Ejercicio 6  
@@ -181,7 +187,6 @@ namespace Practico1
             }
 
             Console.WriteLine($"La palabra ingresada tiene {cantidad} vocales");
-            PressToContinue();
         }
 
         static bool EsVocal(char letra)
@@ -191,7 +196,35 @@ namespace Practico1
         }
 
         /*Ejercicio 7  
-        Ingresar una palabra y mostrarla en el otro sentido(Hola -> aloH).*/  
+        Ingresar una palabra y mostrarla en el otro sentido(Hola -> aloH).*/
+
+        static void EjercicioSiete()
+        {
+            string palabra = PedirPalabras("Ingresá una palabra: ");
+            string palabraInvertida = InvertirPalabra(palabra);
+
+            Console.WriteLine("Palabra invertida: " + palabraInvertida);
+        }
+
+        /*Ejercicio 8  
+        Ingresar una palabra e indicar si es palíndromo(somos).*/
+
+        static void EjercicioOcho()
+        {
+            string palabra = PedirPalabras("Ingresá una palabra: ");
+            string palabraInvertida = InvertirPalabra(palabra);
+
+            if (palabra == palabraInvertida)
+            {
+                Console.WriteLine($"La palabra '{palabra}' es un palíndromo");
+            }
+            else
+            {
+                Console.WriteLine($"La palabra '{palabra}' NO es un palíndromo");
+            }
+        }
+
+        //Métodos auxiliares
 
         static void MostrarMenu()
         {
@@ -230,6 +263,18 @@ namespace Practico1
             Console.Write(mensaje);
             string dato = Console.ReadLine();
             return dato;
+        }
+
+        static string InvertirPalabra(string palabra)
+        {
+            string palabraInvertida = "";
+
+            for (int i = palabra.Length - 1; i >= 0; i--)
+            {
+                palabraInvertida += palabra[i];
+            }
+
+            return palabraInvertida;
         }
 
         static void PressToContinue()
