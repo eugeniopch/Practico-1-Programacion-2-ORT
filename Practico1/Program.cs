@@ -39,7 +39,7 @@ namespace Practico1
                         Console.WriteLine("Saliendo...");
                         break;
                     default:
-                        //MostrarError("ERROR: Opcion inválida");
+                        MostrarError("ERROR: Opcion inválida");
                         break;
                 }
             }
@@ -172,8 +172,26 @@ namespace Practico1
 
         static void EjercicioSeis()
         {
-            
+            string palabra = PedirPalabras("Ingresá una palabra: ");
+            int cantidad = 0;
+
+            for (int i = 0; i < palabra.Length; i++)
+            {
+                if (EsVocal(palabra[i])) cantidad++;
+            }
+
+            Console.WriteLine($"La palabra ingresada tiene {cantidad} vocales");
+            PressToContinue();
         }
+
+        static bool EsVocal(char letra)
+        {
+            string vocales = "aeiouáéíóú";
+            return vocales.Contains(char.ToLower(letra));
+        }
+
+        /*Ejercicio 7  
+        Ingresar una palabra y mostrarla en el otro sentido(Hola -> aloH).*/  
 
         static void MostrarMenu()
         {
@@ -201,16 +219,30 @@ namespace Practico1
                 Console.Write(mensaje);
                 exito = int.TryParse(Console.ReadLine(), out numero);
 
-                //if (!exito) MostrarError("ERROR: Debe ingresar solo numeros");
+                if (!exito) MostrarError("ERROR: Debe ingresar solo numeros");
             }
 
             return numero;
+        }
+
+        static string PedirPalabras(string mensaje)
+        {
+            Console.Write(mensaje);
+            string dato = Console.ReadLine();
+            return dato;
         }
 
         static void PressToContinue()
         {
             Console.WriteLine("Presione una tecla para continuar");
             Console.ReadKey();
+        }
+
+        static void MostrarError(string mensaje)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(mensaje);
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
 
     }
