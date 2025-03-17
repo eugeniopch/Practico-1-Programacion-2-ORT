@@ -135,16 +135,22 @@ namespace Practico1
             int num1 = PedirNumeros("Ingrese un número: ");
             int num2 = PedirNumeros("Ingrese otro número: ");
             int valor = PedirNumeros("Ingrese un valor: ");
+            bool valorEncontrado = false;
 
             for (int i = num1; i < num2; i++)
             {
                 if (i == valor)
                 {
                     Console.WriteLine("El valor se encuentra comprendido entre los dos números");
+                    valorEncontrado = true;
+                    break;
                 }
             }
 
-            //Ver respuesta en caso de que no se encuentre comprendido entre los dos números
+            if (!valorEncontrado)
+            {
+                Console.WriteLine("El valor NO se encuentra comprendido entre los dos números");
+            }
         }
 
         /*Ejercicio 5  
@@ -183,12 +189,6 @@ namespace Practico1
             }
 
             Console.WriteLine($"La palabra ingresada tiene {cantidad} vocales");
-        }
-
-        static bool EsVocal(char letra)
-        {
-            string vocales = "aeiouáéíóú";
-            return vocales.Contains(char.ToLower(letra));
         }
 
         /*Ejercicio 7  
@@ -251,6 +251,12 @@ namespace Practico1
         {
             int numeroRandom = new Random().Next(1, 3);
             return numeroRandom;
+        }
+
+        static bool EsVocal(char letra)
+        {
+            string vocales = "aeiouáéíóú";
+            return vocales.Contains(char.ToLower(letra));
         }
 
         static int PedirNumeros(string mensaje)
